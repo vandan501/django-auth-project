@@ -1,0 +1,40 @@
+{% extends 'account/base.html' %} {% block title %}Login{% endblock %} 
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">Login</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-4">
+      <label for="id_username" class="block text-gray-700">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="id_username"
+        class="w-full p-3 border border-gray-300 rounded-lg"
+        required
+      />
+    </div>
+
+    <div class="mb-4">
+      <label for="id_password" class="block text-gray-700">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="id_password"
+        class="w-full p-3 border border-gray-300 rounded-lg"
+        required
+      />
+    </div>
+
+    <div class="mb-4">
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+  <a href="{% url 'reset_password' %}" class='text-center w-full'><span>Forgot Password</span></a>
+</div>
+{% endblock %}
