@@ -10,6 +10,7 @@ from django.urls import reverse
 from account.forms import RegisterForm
 from account.models import User
 from account.utils import send_activation_email
+from django.contrib.auth.decorators import login_required
 
 
 def register(request):
@@ -87,15 +88,15 @@ def login_view(request):
 def home(request):
     return render(request, 'account/home.html')
 
-
+@login_required
 def reset_password(request):
     return render(request, 'account/reset_password.html')
 
-
+@login_required
 def reset_password_confirm(request, uidb64, token):
     return render(request, 'account/reset_password_confirm.html')
 
-
+@login_required
 def activate_account(request, uidb64, token):
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
@@ -124,7 +125,7 @@ def activate_account(request, uidb64, token):
 
 
 from django.contrib.auth import logout as django_logout
-
+@login_required
 def logout_view(request):
     django_logout(request)
     messages.success(request, "You have been logged out.")
