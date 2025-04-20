@@ -1,9 +1,22 @@
 <header class="bg-blue-500 p-4 relative top-0 w-full h-[60px]">
     <nav>
         <ul class="flex space-x-4">
-            <li><a href="/" class="text-white hover:text-gray-200">Home</a></li>
-            <li><a href="/account/register/" class="text-white hover:text-gray-200">Register</a></li>
-            <li><a href="/account/login/" class="text-white hover:text-gray-200">Login</a></li>
+            <li>
+                <a href="/" class="text-white hover:text-gray-200">Home</a>
+            </li>
+
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="/account/logout/" class="text-white hover:text-gray-200">Logout</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="/account/register/" class="text-white hover:text-gray-200">Register</a>
+                </li>
+                <li>
+                    <a href="/account/login/" class="text-white hover:text-gray-200">Login</a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
 </header>
