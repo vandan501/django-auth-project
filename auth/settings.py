@@ -123,3 +123,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# To use Custom user model
+AUTH_USER_MODEL ="account.User" 
+
+BASE_URL = "http://localhost:8000/"
+SITE_NAME = "Authentication System by Vandan"
+# Mail Trap Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'live.smtp.mailtrap.io'
+EMAIL_HOST_USER = 'api'
+EMAIL_HOST_PASSWORD = 'e9c6962169953a381c8082e188f23e41'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True 
